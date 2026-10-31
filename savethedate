@@ -303,7 +303,7 @@
 
             try {
                 // AQUÍ DEBES PEGAR LA URL DE TU GOOGLE APPS SCRIPT O WEB HOOK (ej. Formspree, SheetDB, etc.)
-                const WEB_URL = "TU_URL_DE_GOOGLE_APPS_SCRIPT_AQUI"; 
+                const WEB_URL = https://script.google.com/macros/s/AKfycbyZlY3dO2bd34G6UmRAZHCubyj4xMDJ_fmVrmSB5gRqKB0wPsYufUtTDG0toqrtQ8ns/exec; 
 
                 if (WEB_URL === "TU_URL_DE_GOOGLE_APPS_SCRIPT_AQUI") {
                     // Simulación local si aún no has puesto la URL del script
