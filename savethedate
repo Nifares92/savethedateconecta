@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cena de Socios | Conecta y Actúa</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        conecta: {
+                            DEFAULT: '#9e3b32',
+                            dark: '#782a23',
+                            light: '#fdfbf9',
+                        },
+                        terracota: {
+                            DEFAULT: '#c85a4a',
+                            hover: '#b0493b',
+                            light: '#fcf2f0'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fdfbf9;
+            color: #2b2b2b;
+        }
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Outfit', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-[#fdfbf9] text-[#2b2b2b] selection:bg-[#c85a4a]/20 selection:text-[#9e3b32]">
+
+    <!-- Notificación emergente flotante personalizada -->
+    <div id="toast" class="fixed top-5 right-5 z-50 transform translate-x-full transition-all duration-300 bg-white border border-slate-200 shadow-xl rounded-xl p-4 flex items-center space-x-3 max-w-sm">
+        <div id="toast-icon" class="text-[#c85a4a] text-xl"></div>
+        <div>
+            <h4 id="toast-title" class="font-semibold text-[#9e3b32] text-sm font-heading"></h4>
+            <p id="toast-message" class="text-xs text-slate-600"></p>
+        </div>
+    </div>
+
+    <!-- Header / Hero Section -->
+    <header class="relative min-h-[85vh] flex flex-col justify-between items-center text-center px-6 py-12 overflow-hidden bg-gradient-to-b from-[#9e3b32] via-[#8a332b] to-[#782a23] text-white">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=1920')] bg-cover bg-center opacity-10"></div>
+
+        <div class="relative z-10 w-full max-w-6xl flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-[#c85a4a] flex items-center justify-center text-white font-heading font-bold text-lg shadow-md">
+                    C
+                </div>
+                <span class="text-xs tracking-[0.2em] uppercase text-amber-100 font-semibold">Conecta y Actúa</span>
+            </div>
+        </div>
+
+        <div class="relative z-10 my-auto max-w-3xl mx-auto space-y-6">
+            <span class="inline-block bg-[#c85a4a]/30 text-amber-100 border border-[#c85a4a]/50 px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase">
+                Save the Date • Cena Anual de Socios
+            </span>
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight font-heading text-white">
+                Cena Solidaria <span class="text-amber-200">Conecta</span>
+            </h1>
+            <p class="text-amber-100/90 text-base sm:text-lg max-w-xl mx-auto font-light">
+                Un encuentro muy especial para celebrar todo lo que hemos conseguido juntos y proyectar nuestros nuevos retos solidarios en Cartagena y cooperación internacional.
+            </p>
+            <div class="pt-4 flex flex-wrap justify-center gap-4 text-xs sm:text-sm text-amber-100 font-medium">
+                <span class="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-lg border border-white/15"><i class="fa-solid fa-calendar-days text-amber-200"></i> Viernes, 20 de Noviembre 2026</span>
+                <span class="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-lg border border-white/15"><i class="fa-solid fa-location-dot text-amber-200"></i> Cartagena, Murcia</span>
+            </div>
+        </div>
+
+        <!-- Countdown Banner -->
+        <div class="relative z-10 w-full max-w-2xl bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 shadow-xl my-6 text-white">
+            <h3 class="text-xs uppercase tracking-[0.25em] text-amber-200 mb-4 font-semibold">Faltan para la gran noche</h3>
+            <div id="countdown" class="grid grid-cols-4 gap-4 text-center">
+                <div>
+                    <span id="days" class="block text-3xl sm:text-4xl font-heading font-bold text-white">00</span>
+                    <span class="text-[10px] sm:text-xs uppercase tracking-wider text-amber-100">Días</span>
+                </div>
+                <div>
+                    <span id="hours" class="block text-3xl sm:text-4xl font-heading font-bold text-white">00</span>
+                    <span class="text-[10px] sm:text-xs uppercase tracking-wider text-amber-100">Horas</span>
+                </div>
+                <div>
+                    <span id="minutes" class="block text-3xl sm:text-4xl font-heading font-bold text-white">00</span>
+                    <span class="text-[10px] sm:text-xs uppercase tracking-wider text-amber-100">Minutos</span>
+                </div>
+                <div>
+                    <span id="seconds" class="block text-3xl sm:text-4xl font-heading font-bold text-white">00</span>
+                    <span class="text-[10px] sm:text-xs uppercase tracking-wider text-amber-100">Segundos</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="relative z-10 animate-bounce">
+            <a href="#rsvp" class="text-amber-200 text-lg"><i class="fa-solid fa-chevron-down"></i></a>
+        </div>
+    </header>
+
+    <!-- RSVP Form Section -->
+    <section id="rsvp" class="py-20 px-6 max-w-3xl mx-auto">
+        <div class="bg-white p-8 sm:p-12 rounded-3xl shadow-xl border border-stone-200">
+            <div class="text-center mb-10">
+                <span class="text-xs uppercase tracking-[0.3em] text-[#9e3b32] font-semibold bg-[#9e3b32]/10 px-3 py-1 rounded-full">Confirmación de Asistencia</span>
+                <h2 class="text-3xl sm:text-4xl font-heading text-[#9e3b32] mt-3">Reserva tu plaza</h2>
+                <div class="w-16 h-1 bg-[#c85a4a] mx-auto my-3 rounded-full"></div>
+                <p class="text-slate-600 text-sm max-w-md mx-auto">Por favor, confirma tu asistencia a la cena de socios rellenando el siguiente formulario antes del 10 de Noviembre.</p>
+            </div>
+
+            <form id="rsvp-form" class="space-y-6">
+                <div>
+                    <label class="block text-xs uppercase tracking-wider text-slate-700 font-semibold mb-2" for="guest-name">Nombre y Apellidos del Socio/a *</label>
+                    <input type="text" id="guest-name" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-[#9e3b32] focus:ring-2 focus:ring-[#9e3b32]/20 outline-none transition text-sm bg-stone-50/50" placeholder="Ej. Ana María García López">
+                </div>
+
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-slate-700 font-semibold mb-2" for="guest-email">Correo Electrónico *</label>
+                        <input type="email" id="guest-email" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-[#9e3b32] focus:ring-2 focus:ring-[#9e3b32]/20 outline-none transition text-sm bg-stone-50/50" placeholder="tu@correo.com">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-slate-700 font-semibold mb-2" for="guest-phone">Teléfono de Contacto *</label>
+                        <input type="tel" id="guest-phone" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-[#9e3b32] focus:ring-2 focus:ring-[#9e3b32]/20 outline-none transition text-sm bg-stone-50/50" placeholder="600 000 000">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs uppercase tracking-wider text-slate-700 font-semibold mb-2">¿Asistirás a la Cena de Socios? *</label>
+                    <div class="grid grid-cols-2 gap-4">
+                        <label class="border-2 rounded-xl p-4 text-center cursor-pointer flex items-center justify-center gap-2 hover:border-[#9e3b32] transition has-[:checked]:bg-[#9e3b32]/10 has-[:checked]:border-[#9e3b32] has-[:checked]:text-[#9e3b32]">
+                            <input type="radio" name="attendance" value="Sí asistiré" required class="text-[#9e3b32] focus:ring-[#9e3b32]" onchange="toggleCompanionSection()">
+                            <span class="text-sm font-semibold">Sí asistiré</span>
+                        </label>
+                        <label class="border-2 rounded-xl p-4 text-center cursor-pointer flex items-center justify-center gap-2 hover:border-[#c85a4a] transition has-[:checked]:bg-[#c85a4a]/10 has-[:checked]:border-[#c85a4a] has-[:checked]:text-[#9e3b32]">
+                            <input type="radio" name="attendance" value="No podré asistir" required class="text-[#c85a4a] focus:ring-[#c85a4a]" onchange="toggleCompanionSection()">
+                            <span class="text-sm font-semibold">No podré asistir</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div id="companions-section" class="space-y-4 hidden border-t border-stone-100 pt-6">
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-slate-700 font-semibold mb-2" for="companions-count">Número de Acompañantes</label>
+                        <select id="companions-count" onchange="renderCompanionFields()" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-[#9e3b32] focus:ring-2 focus:ring-[#9e3b32]/20 outline-none transition text-sm bg-stone-50/50">
+                            <option value="0">Ninguno (Voy solo/a)</option>
+                            <option value="1">1 Acompañante</option>
+                            <option value="2">2 Acompañantes</option>
+                            <option value="3">3 Acompañantes</option>
+                        </select>
+                    </div>
+                    <div id="companions-names-container" class="space-y-3"></div>
+                </div>
+
+                <div>
+                    <label class="block text-xs uppercase tracking-wider text-slate-700 font-semibold mb-2" for="observations">Restricciones alimentarias, alergias u observaciones</label>
+                    <textarea id="observations" rows="3" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-[#9e3b32] focus:ring-2 focus:ring-[#9e3b32]/20 outline-none transition text-sm bg-stone-50/50" placeholder="Indícanos si tienes alguna alergia, intolerancia o necesidad especial..."></textarea>
+                </div>
+
+                <div class="bg-stone-50 p-4 rounded-xl border border-stone-200 text-xs text-slate-600 space-y-2">
+                    <label class="flex items-start gap-3 cursor-pointer">
+                        <input type="checkbox" id="rgpd-consent" required class="mt-0.5 rounded text-[#9e3b32] focus:ring-[#9e3b32]">
+                        <span><strong>Protección de datos (RGPD):</strong> Consiento el tratamiento de mis datos por parte de CONECTA Y ACTÚA para la gestión de asistencia a la cena de socios y comunicaciones relacionadas (conecta.actua@gmail.com), conforme a la normativa vigente. *</span>
+                    </label>
+                </div>
+
+                <button type="submit" id="submit-btn" class="w-full py-4 bg-[#c85a4a] hover:bg-[#b0493b] text-white font-medium uppercase tracking-widest rounded-xl shadow-lg shadow-[#c85a4a]/20 transition text-sm flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-paper-plane"></i> Confirmar mi Asistencia
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 bg-[#782a23] text-amber-100 text-center text-xs tracking-wider space-y-3">
+        <p class="font-heading font-medium text-white">Asociación Conecta y Actúa • Cartagena</p>
+        <p><a href="https://www.conectacartagena.org/" target="_blank" class="text-amber-300 hover:underline">www.conectacartagena.org</a> | conecta.actua@gmail.com</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        const cenaDate = new Date('November 20, 2026 21:00:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = cenaDate - now;
+
+            if (distance < 0) {
+                document.getElementById('countdown').innerHTML = "<div class='col-span-4 text-xl font-heading text-amber-200 font-semibold'>¡La cena de socios ha comenzado!</div>";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = String(days).padStart(2, '0');
+            document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+            document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        function showToast(title, message, type = 'success') {
+            const toast = document.getElementById('toast');
+            const icon = document.getElementById('toast-icon');
+            document.getElementById('toast-title').innerText = title;
+            document.getElementById('toast-message').innerText = message;
+
+            if (type === 'success') {
+                icon.innerHTML = '<i class="fa-solid fa-circle-check text-[#c85a4a]"></i>';
+            } else {
+                icon.innerHTML = '<i class="fa-solid fa-circle-exclamation text-rose-600"></i>';
+            }
+
+            toast.classList.remove('translate-x-full');
+            setTimeout(() => {
+                toast.classList.add('translate-x-full');
+            }, 4000);
+        }
+
+        function toggleCompanionSection() {
+            const attendance = document.querySelector('input[name="attendance"]:checked');
+            const section = document.getElementById('companions-section');
+            if (attendance && attendance.value === 'Sí asistiré') {
+                section.classList.remove('hidden');
+            } else {
+                section.classList.add('hidden');
+                document.getElementById('companions-count').value = "0";
+                document.getElementById('companions-names-container').innerHTML = "";
+            }
+        }
+
+        function renderCompanionFields() {
+            const count = parseInt(document.getElementById('companions-count').value);
+            const container = document.getElementById('companions-names-container');
+            container.innerHTML = "";
+
+            for (let i = 1; i <= count; i++) {
+                const div = document.createElement('div');
+                div.innerHTML = `
+                    <label class="block text-[11px] uppercase tracking-wider text-slate-500 mb-1">Nombre del acompañante ${i}</label>
+                    <input type="text" name="companion_name_${i}" class="w-full px-3 py-2.5 rounded-xl border border-slate-300 focus:border-[#9e3b32] focus:ring-2 focus:ring-[#9e3b32]/20 outline-none transition text-sm bg-stone-50/50" placeholder="Nombre y apellidos">
+                `;
+                container.appendChild(div);
+            }
+        }
+
+        // --- ENVÍO DE DATOS A TU EXCEL / GOOGLE SHEETS ---
+        document.getElementById('rsvp-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submit-btn');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
+
+            const name = document.getElementById('guest-name').value;
+            const email = document.getElementById('guest-email').value;
+            const phone = document.getElementById('guest-phone').value;
+            const attendance = document.querySelector('input[name="attendance"]:checked').value;
+            const companionsCount = document.getElementById('companions-count').value;
+            
+            let compNamesArr = [];
+            for (let i = 1; i <= parseInt(companionsCount); i++) {
+                const compInput = document.querySelector(`input[name="companion_name_${i}"]`);
+                if (compInput && compInput.value.trin() !== '') {
+                    compNamesArr.push(compInput.value.trim());
+                }
+            }
+
+            const now = new Date();
+            const dateStr = now.getFullYear() + '-' + String(now.getMonth()+1).padStart(2,'0') + '-' + String(now.getDate()).padStart(2,'0') + ' ' + String(now.getHours()).padStart(2,'0') + ':' + String(now.getMinutes()).padStart(2,'0');
+
+            const formData = {
+                date: dateStr,
+                name: name,
+                email: email,
+                phone: phone,
+                attendance: attendance,
+                companionsCount: companionsCount,
+                companionsNames: compNamesArr.join(', ') || 'Ninguno',
+                observations: document.getElementById('observations').value || 'Ninguna'
+            };
+
+            try {
+                // AQUÍ DEBES PEGAR LA URL DE TU GOOGLE APPS SCRIPT O WEB HOOK (ej. Formspree, SheetDB, etc.)
+                const WEB_URL = "TU_URL_DE_GOOGLE_APPS_SCRIPT_AQUI"; 
+
+                if (WEB_URL === "TU_URL_DE_GOOGLE_APPS_SCRIPT_AQUI") {
+                    // Simulación local si aún no has puesto la URL del script
+                    await new Promise(resolve => setTimeout(resolve, 1000));
+                    console.log("Datos listos para enviar:", formData);
+                } else {
+                    await fetch(WEB_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(formData)
+                    });
+                }
+
+                showToast('¡Respuesta registrada!', 'Gracias por confirmar tu asistencia a la cena.');
+                this.reset();
+                document.getElementById('companions-section').classList.add('hidden');
+                document.getElementById('companions-names-container').innerHTML = '';
+            } catch (error) {
+                showToast('Error', 'Hubo un problema al registrar tu asistencia. Inténtalo de nuevo.', 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Confirmar mi Asistencia';
+            }
+        });
+    </script>
+</body>
+</html>
