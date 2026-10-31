@@ -59,7 +59,7 @@
     </div>
 
     <!-- Header / Hero Section -->
-    <header class="relative min-h-[85vh] flex flex-col justify-between items-center text-center px-6 py-12 overflow-hidden bg-gradient-to-b from-[#9e3b32] via-[#8a332b] to-[#782a23] text-white">
+    <header class="relative min-h-[90vh] flex flex-col justify-between items-center text-center px-6 py-12 overflow-hidden bg-gradient-to-b from-[#9e3b32] via-[#8a332b] to-[#782a23] text-white">
         <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=1920')] bg-cover bg-center opacity-10"></div>
 
         <div class="relative z-10 w-full max-w-6xl flex justify-between items-center">
@@ -69,27 +69,31 @@
                 </div>
                 <span class="text-xs tracking-[0.2em] uppercase text-amber-100 font-semibold">Conecta y Actúa</span>
             </div>
+            <div class="bg-amber-200/20 border border-amber-200/40 text-amber-100 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider">
+                Entrada: 25 €
+            </div>
         </div>
 
         <div class="relative z-10 my-auto max-w-3xl mx-auto space-y-6">
             <span class="inline-block bg-[#c85a4a]/30 text-amber-100 border border-[#c85a4a]/50 px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase">
-                Save the Date • Cena Anual de Socios
+                Encuentro Navideño • Conecta y Actúa
             </span>
             <h1 class="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight font-heading text-white">
                 Cena Solidaria <span class="text-amber-200">Conecta</span>
             </h1>
             <p class="text-amber-100/90 text-base sm:text-lg max-w-xl mx-auto font-light">
-                Un encuentro muy especial para celebrar todo lo que hemos conseguido juntos y proyectar nuestros nuevos retos solidarios en Cartagena y cooperación internacional.
+                Disfruta de una velada inolvidable amenizada por un coro góospel, gran rifa solidaria y el mejor ambiente para celebrar nuestros proyectos.
             </p>
-            <div class="pt-4 flex flex-wrap justify-center gap-4 text-xs sm:text-sm text-amber-100 font-medium">
-                <span class="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-lg border border-white/15"><i class="fa-solid fa-calendar-days text-amber-200"></i> Viernes, 20 de Noviembre 2026</span>
-                <span class="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-lg border border-white/15"><i class="fa-solid fa-location-dot text-amber-200"></i> Cartagena, Murcia</span>
+            <div class="pt-2 flex flex-wrap justify-center gap-3 text-xs sm:text-sm text-amber-100 font-medium">
+                <span class="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-lg border border-white/15"><i class="fa-solid fa-calendar-days text-amber-200"></i> Sábado, 19 de Diciembre 2026</span>
+                <span class="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-lg border border-white/15"><i class="fa-solid fa-clock text-amber-200"></i> 18:00h - 20:00h</span>
+                <span class="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-lg border border-white/15"><i class="fa-solid fa-location-dot text-amber-200"></i> Club de Regatas de Cartagena</span>
             </div>
         </div>
 
         <!-- Countdown Banner -->
         <div class="relative z-10 w-full max-w-2xl bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 shadow-xl my-6 text-white">
-            <h3 class="text-xs uppercase tracking-[0.25em] text-amber-200 mb-4 font-semibold">Faltan para la gran noche</h3>
+            <h3 class="text-xs uppercase tracking-[0.25em] text-amber-200 mb-4 font-semibold">Faltan para el encuentro</h3>
             <div id="countdown" class="grid grid-cols-4 gap-4 text-center">
                 <div>
                     <span id="days" class="block text-3xl sm:text-4xl font-heading font-bold text-white">00</span>
@@ -115,14 +119,38 @@
         </div>
     </header>
 
+    <!-- Detalles del Evento (Coro y Rifa) -->
+    <section class="py-12 px-6 max-w-5xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm flex items-start gap-4">
+                <div class="w-12 h-12 rounded-xl bg-[#9e3b32]/10 text-[#9e3b32] flex items-center justify-center text-xl shrink-0">
+                    <i class="fa-solid fa-music"></i>
+                </div>
+                <div>
+                    <h3 class="font-heading text-lg font-semibold text-[#9e3b32]">Coro Góospel en Directo</h3>
+                    <p class="text-slate-600 text-sm mt-1">Amenizaremos el evento con las mejores voces de un coro góospel para crear una atmósfera mágica y navideña.</p>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm flex items-start gap-4">
+                <div class="w-12 h-12 rounded-xl bg-[#c85a4a]/10 text-[#c85a4a] flex items-center justify-center text-xl shrink-0">
+                    <i class="fa-solid fa-ticket"></i>
+                </div>
+                <div>
+                    <h3 class="font-heading text-lg font-semibold text-[#9e3b32]">Gran Rifa Solidaria</h3>
+                    <p class="text-slate-600 text-sm mt-1">Durante la tarde celebraremos una rifa con sorpresas y regalos para seguir apoyando nuestros proyectos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- RSVP Form Section -->
-    <section id="rsvp" class="py-20 px-6 max-w-3xl mx-auto">
+    <section id="rsvp" class="py-10 px-6 max-w-3xl mx-auto">
         <div class="bg-white p-8 sm:p-12 rounded-3xl shadow-xl border border-stone-200">
             <div class="text-center mb-10">
                 <span class="text-xs uppercase tracking-[0.3em] text-[#9e3b32] font-semibold bg-[#9e3b32]/10 px-3 py-1 rounded-full">Confirmación de Asistencia</span>
-                <h2 class="text-3xl sm:text-4xl font-heading text-[#9e3b32] mt-3">Reserva tu plaza</h2>
+                <h2 class="text-3xl sm:text-4xl font-heading text-[#9e3b32] mt-3">Reserva tu plaza (25 €)</h2>
                 <div class="w-16 h-1 bg-[#c85a4a] mx-auto my-3 rounded-full"></div>
-                <p class="text-slate-600 text-sm max-w-md mx-auto">Por favor, confirma tu asistencia a la cena de socios rellenando el siguiente formulario antes del 10 de Noviembre.</p>
+                <p class="text-slate-600 text-sm max-w-md mx-auto">Por favor, confirma tu asistencia rellenando el formulario antes del 12 de Diciembre.</p>
             </div>
 
             <form id="rsvp-form" class="space-y-6">
@@ -143,7 +171,7 @@
                 </div>
 
                 <div>
-                    <label class="block text-xs uppercase tracking-wider text-slate-700 font-semibold mb-2">¿Asistirás a la Cena de Socios? *</label>
+                    <label class="block text-xs uppercase tracking-wider text-slate-700 font-semibold mb-2">¿Asistirás al evento? *</label>
                     <div class="grid grid-cols-2 gap-4">
                         <label class="border-2 rounded-xl p-4 text-center cursor-pointer flex items-center justify-center gap-2 hover:border-[#9e3b32] transition has-[:checked]:bg-[#9e3b32]/10 has-[:checked]:border-[#9e3b32] has-[:checked]:text-[#9e3b32]">
                             <input type="radio" name="attendance" value="Sí asistiré" required class="text-[#9e3b32] focus:ring-[#9e3b32]" onchange="toggleCompanionSection()">
@@ -171,13 +199,13 @@
 
                 <div>
                     <label class="block text-xs uppercase tracking-wider text-slate-700 font-semibold mb-2" for="observations">Restricciones alimentarias, alergias u observaciones</label>
-                    <textarea id="observations" rows="3" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-[#9e3b32] focus:ring-2 focus:ring-[#9e3b32]/20 outline-none transition text-sm bg-stone-50/50" placeholder="Indícanos si tienes alguna alergia, intolerancia o necesidad especial..."></textarea>
+                    <textarea id="observations" rows="3" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-[#9e3b32] focus:ring-2 focus:ring-[#9e3b32]/20 outline-none transition text-sm bg-stone-50/50" placeholder="Indícanos si tienes alguna alergia o necesidad especial..."></textarea>
                 </div>
 
                 <div class="bg-stone-50 p-4 rounded-xl border border-stone-200 text-xs text-slate-600 space-y-2">
                     <label class="flex items-start gap-3 cursor-pointer">
                         <input type="checkbox" id="rgpd-consent" required class="mt-0.5 rounded text-[#9e3b32] focus:ring-[#9e3b32]">
-                        <span><strong>Protección de datos (RGPD):</strong> Consiento el tratamiento de mis datos por parte de CONECTA Y ACTÚA para la gestión de asistencia a la cena de socios y comunicaciones relacionadas (conecta.actua@gmail.com), conforme a la normativa vigente. *</span>
+                        <span><strong>Protección de datos (RGPD):</strong> Consiento el tratamiento de mis datos por parte de CONECTA Y ACTÚA para la gestión de asistencia y comunicaciones relacionadas (conecta.actua@gmail.com), conforme a la normativa vigente. *</span>
                     </label>
                 </div>
 
@@ -196,14 +224,14 @@
 
     <!-- Scripts -->
     <script>
-        const cenaDate = new Date('November 20, 2026 21:00:00').getTime();
+        const cenaDate = new Date('December 19, 2026 18:00:00').getTime();
 
         function updateCountdown() {
             const now = new Date().getTime();
             const distance = cenaDate - now;
 
             if (distance < 0) {
-                document.getElementById('countdown').innerHTML = "<div class='col-span-4 text-xl font-heading text-amber-200 font-semibold'>¡La cena de socios ha comenzado!</div>";
+                document.getElementById('countdown').innerHTML = "<div class='col-span-4 text-xl font-heading text-amber-200 font-semibold'>¡El evento ha comenzado!</div>";
                 return;
             }
 
@@ -265,7 +293,7 @@
             }
         }
 
-        // --- ENVÍO DE DATOS A TU EXCEL / GOOGLE SHEETS ---
+        // --- ENVÍO DE DATOS DIRECTO A TU GOOGLE SHEETS ---
         document.getElementById('rsvp-form').addEventListener('submit', async function(e) {
             e.preventDefault();
             
@@ -282,7 +310,7 @@
             let compNamesArr = [];
             for (let i = 1; i <= parseInt(companionsCount); i++) {
                 const compInput = document.querySelector(`input[name="companion_name_${i}"]`);
-                if (compInput && compInput.value.trin() !== '') {
+                if (compInput && compInput.value.trim() !== '') {
                     compNamesArr.push(compInput.value.trim());
                 }
             }
@@ -302,23 +330,16 @@
             };
 
             try {
-                // AQUÍ DEBES PEGAR LA URL DE TU GOOGLE APPS SCRIPT O WEB HOOK (ej. Formspree, SheetDB, etc.)
-                const WEB_URL = https://script.google.com/macros/s/AKfycbyZlY3dO2bd34G6UmRAZHCubyj4xMDJ_fmVrmSB5gRqKB0wPsYufUtTDG0toqrtQ8ns/exec; 
+                const WEB_URL = "https://script.google.com/macros/s/AKfycbyZlY3dO2bd34G6UmRAZHCubyj4xMDJ_fmVrmSB5gRqKB0wPsYufUtTDG0toqrtQ8ns/exec";
 
-                if (WEB_URL === "TU_URL_DE_GOOGLE_APPS_SCRIPT_AQUI") {
-                    // Simulación local si aún no has puesto la URL del script
-                    await new Promise(resolve => setTimeout(resolve, 1000));
-                    console.log("Datos listos para enviar:", formData);
-                } else {
-                    await fetch(WEB_URL, {
-                        method: 'POST',
-                        mode: 'no-cors',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(formData)
-                    });
-                }
+                await fetch(WEB_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
 
-                showToast('¡Respuesta registrada!', 'Gracias por confirmar tu asistencia a la cena.');
+                showToast('¡Respuesta registrada!', 'Gracias por confirmar tu asistencia al evento.');
                 this.reset();
                 document.getElementById('companions-section').classList.add('hidden');
                 document.getElementById('companions-names-container').innerHTML = '';
